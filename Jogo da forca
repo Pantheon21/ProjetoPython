@@ -1,1 +1,75 @@
+import random
 
+temas = {
+    "animais": ["gato", "cachorro", "elefante", "leao", "tigre"],
+    "frutas": ["banana", "uva", "morango", "abacaxi", "laranja"],
+    "países": ["brasil", "estados unidos", "japao", "italia", "alemanha"],
+    "cores": ["azul", "vermelho", "amarelo", "verde", "roxo"],
+    "profissões": ["médico", "professor", "engenheiro", "advogado", "programador"]
+}
+
+def jogo_da_forca():
+    tema = escolher_tema()
+    palavra_secreta = escolher_palavra(tema)
+    letras_certas = []
+    letras_erradas = []
+    tentativas = 6
+    
+    while True:
+        print("\nAdivinhe a palavra secreta do tema", tema + "!")
+        print("Tentativas restantes:", tentativas)
+        
+        for letra in palavra_secreta:
+            if letra in letras_certas:
+                print(letra, end=" ")
+            else:
+                print("_", end=" ")
+        
+        print("\n\n")
+        letra_palpite = input("Digite uma letra: ").lower()
+        
+        if letra_palpite in palavra_secreta:
+            letras_certas.append(letra_palpite)
+            
+            if len(letras_certas) == len(palavra_secreta):
+                print("\nParabéns! Você acertou a palavra secreta:", palavra_secreta)
+                break
+        else:
+            letras_erradas.append(letra_palpite)
+            tentativas -= 1
+            
+            print("\nLetra errada! Tente novamente.")
+            
+            if tentativas == 0:
+                print("\nSuas tentativas acabaram. A palavra secreta era:", palavra_secreta)
+                break
+
+def escolher_tema():
+    print("Escolha um tema:")
+    print("1. Animais")
+    print("2. Frutas")
+    print("3. Países")
+    print("4. Cores")
+    print("5. Profissões")
+    
+    tema_escolhido = input("Digite o número do tema desejado: ")
+    
+    while tema_escolhido not in ["1", "2", "3", "4", "5"]:
+        tema_escolhido = input("Opção inválida. Digite o número do tema desejado: ")
+    
+    if tema_escolhido == "1":
+        return "animais"
+    elif tema_escolhido == "2":
+        return "frutas"
+    elif tema_escolhido == "3":
+        return "países"
+    elif tema_escolhido == "4":
+        return "cores"
+    elif tema_escolhido == "5":
+        return "profissões"
+
+def escolher_palavra(tema):
+    return random.choice(temas[tema])
+
+# Iniciar o jogo
+jogo_da_forca()
