@@ -1,0 +1,65 @@
+#primeira lista
+
+adicionar = "MOntanhas"
+with open('txt.txt', 'r') as arquivo:
+    frase = arquivo.read()
+
+quantidade = len(frase)
+print(quantidade)
+print(frase)
+with open('txt.txt', 'w') as arquivo:
+     arquivo.write(adicionar)
+with open('txt.txt', 'r') as arquivo:
+    frase = arquivo.read()
+print(frase)
+
+#segunda lista
+
+def somaImposto(taxaImposto, custo):
+    custo += custo * (taxaImposto / 100)
+    return custo
+
+taxa = float(input("Informe a taxa de imposto sobre vendas em porcentagem: "))
+valor = float(input("Informe o custo do item antes do imposto: "))
+
+valor_com_imposto = somaImposto(taxa, valor)
+print("O custo com imposto é:", valor_com_imposto)
+
+
+def quantidadeDigitos(frase):
+    quantidade = len(frase.replace(" ", ""))
+    return quantidade
+
+frase = input("Digite uma frase: ")
+quantidade = quantidadeDigitos(frase)
+print("A quantidade de dígitos na frase é:", quantidade)
+
+def reversoNumero(numero):
+    reverso = int(str(numero)[::-1])
+    return reverso
+
+numero = int(input("Digite um número inteiro: "))
+reverso = reversoNumero(numero)
+print("O reverso do número é:", reverso)
+
+#terceira lista
+
+print("Eu amo programar com esta linguagem!")
+nome = input("Digite o seu nome: ")
+print("Bom dia,", nome, "!")
+numero = float(input("Digite um número: "))
+resultado = (((numero + 1357) * 8) / 5) ** 2
+print("O resultado é:", resultado)
+nome2 = input("Digite o seu nome: ")
+convite = "Você está convidado para a festa, " + nome2.upper() + "!"
+print(convite)
+soma = 4 + 4
+subtracao = 10 - 2
+multiplicacao = 2 * 4
+divisao = 16 / 2
+
+print("Resultados:")
+print("Soma:", soma)
+print("Subtração:", subtracao)
+print("Multiplicação:", multiplicacao)
+print("Divisão:", divisao)
