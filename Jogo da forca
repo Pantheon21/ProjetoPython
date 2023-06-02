@@ -5,7 +5,7 @@ temas = {
     "frutas": ["banana", "uva", "morango", "abacaxi", "laranja"],
     "países": ["brasil", "estados unidos", "japao", "italia", "alemanha"],
     "cores": ["azul", "vermelho", "amarelo", "verde", "roxo"],
-    "profissões": ["médico", "professor", "engenheiro", "advogado", "programador"]
+    "profissões": ["medico", "professor", "engenheiro", "advogado", "programador"]
 }
 
 def jogo_da_forca():
